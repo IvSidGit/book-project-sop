@@ -37,5 +37,9 @@ public record AuthorRequest(
 
         @Schema(description = "Национальность автора", example = "Русский")
         @Size(max = 100, message = "Национальность не может превышать 100 символов")
-        String nationality
+        String nationality,
+
+        @Schema(description = "Номер телефона автора", example = "89774353894")
+        @Size(max = 11, message = "Номер телефона не может превышать 11 символов")
+        String phone
 ) {}

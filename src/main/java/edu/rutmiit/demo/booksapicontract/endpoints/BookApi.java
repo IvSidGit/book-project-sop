@@ -17,6 +17,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Контракт API для управления книгами.
  * Реализующий контроллер в сервисе должен имплементировать этот интерфейс.
@@ -127,6 +129,16 @@ public interface BookApi {
     void deleteBook(
             @Parameter(description = "ID книги", required = true, example = "1") @PathVariable Long id
     );
+
+    @Operation(
+            summary = "Краткий список всех книг (без деталей)",
+            description = "Возвращает список книг без описания и информации об авторе. "
+                    + "Подходит для выпадающих списков и быстрого просмотра.",
+            security = @SecurityRequirement(name = BooksApiContractConfig.SECURITY_SCHEME_BEARER)
+    )
+    @ApiResponse(responseCode = "200", description = "Краткий список книг")
+    @GetMapping("/summary")
+    List<EntityModel<BookSummaryResponse>> getAllBooksSummary();
 }
 
   
