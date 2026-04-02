@@ -133,23 +133,4 @@ public interface AuthorApi {
             @Parameter(description = "Номер страницы (0..N)", example = "0") @RequestParam(defaultValue = "0") int page,
             @Parameter(description = "Размер страницы", example = "20") @RequestParam(defaultValue = "20") int size
     );
-
-    @Operation(
-            summary = "Поиск авторов по имени",
-            description = "Выполняет поиск авторов по имени (firstName) или фамилии (lastName) с поддержкой пагинации.",
-            security = @SecurityRequirement(name = BooksApiContractConfig.SECURITY_SCHEME_BEARER)
-    )
-    @ApiResponse(responseCode = "200", description = "Список найденных авторов")
-    @GetMapping("/search")
-    PagedModel<EntityModel<AuthorResponse>> searchAuthors(
-            @Parameter(description = "Поисковый запрос (поиск по firstName и lastName)",
-                    example = "Толстой", required = true)
-            @RequestParam String query,
-
-            @Parameter(description = "Номер страницы (0..N)", example = "0")
-            @RequestParam(defaultValue = "0") int page,
-
-            @Parameter(description = "Размер страницы", example = "20")
-            @RequestParam(defaultValue = "20") int size
-    );
 }

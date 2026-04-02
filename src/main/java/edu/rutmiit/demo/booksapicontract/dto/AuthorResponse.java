@@ -2,7 +2,6 @@ package edu.rutmiit.demo.booksapicontract.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -52,7 +51,4 @@ public class AuthorResponse extends RepresentationModel<AuthorResponse> {
 
     @Schema(description = "Общее количество книг автора в каталоге", example = "3")
     private final Integer booksCount;
-
-    @Schema(description = "Номер телефона автора", example = "89774353894")
-    private final String phone;
 }

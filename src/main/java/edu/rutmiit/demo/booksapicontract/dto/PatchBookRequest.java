@@ -1,5 +1,6 @@
 package edu.rutmiit.demo.booksapicontract.dto;
 
+import edu.rutmiit.demo.booksapicontract.validation.ValidIsbn;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -26,6 +27,7 @@ public record PatchBookRequest(
         String title,
 
         @Schema(description = "Новый ISBN (ISBN-10 или ISBN-13)", example = "978-5-389-06259-8")
+        @ValidIsbn
         String isbn,
 
         @Schema(description = "Новое описание книги")

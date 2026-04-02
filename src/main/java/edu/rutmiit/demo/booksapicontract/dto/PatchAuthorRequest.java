@@ -39,9 +39,5 @@ public record PatchAuthorRequest(
 
         @Schema(description = "Новая национальность автора", example = "Русский")
         @Size(max = 100, message = "Национальность не может превышать 100 символов")
-        String nationality,
-
-        @Schema(description = "Номер телефона автора", example = "89774353894")
-        @Size(max = 11, message = "Номер телефона не может превышать 11 символов")
-        String phone
+        String nationality
 ) {}
